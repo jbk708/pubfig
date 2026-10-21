@@ -28,9 +28,10 @@ def text_on(rgb):
 
 
 # ---------------------------------------------------------------- panel letters and saving
-def label(ax, letter, x=None):
-    """Bold panel letter at a fixed point offset left of the axes' top-left, on the title baseline."""
-    ax.annotate(letter, xy=(0, 1), xycoords="axes fraction", xytext=(-11, 6), textcoords="offset points",
+def label(ax, letter, dx=-11, dy=6):
+    """Bold panel letter at a fixed point offset (dx, dy) from the axes' top-left, on the title baseline.
+    Pass a larger negative dx when long y tick labels push the letter onto them; raise dy with the title pad."""
+    ax.annotate(letter, xy=(0, 1), xycoords="axes fraction", xytext=(dx, dy), textcoords="offset points",
                 fontsize=8, fontweight="bold", va="baseline", ha="right", annotation_clip=False)
 
 
@@ -79,10 +80,10 @@ def stat_note(ax, text, x, y, ha="left", va="bottom"):
 
 # ---------------------------------------------------------------- marks
 def ellipse(ax, x, y, colour, n_std=2.0):
-    """Translucent covariance ellipse (n_std s.d.) with a full-colour outline."""
+    """Translucent covariance ellipse (n_std s.d.) with a full-colour outline; returns the patch."""
     vals, vecs = np.linalg.eigh(np.cov(x, y))
     ang = np.degrees(np.arctan2(vecs[1, 1], vecs[0, 1]))
-    ax.add_patch(Ellipse((np.mean(x), np.mean(y)), 2 * n_std * np.sqrt(vals[1]), 2 * n_std * np.sqrt(vals[0]),
+    return ax.add_patch(Ellipse((np.mean(x), np.mean(y)), 2 * n_std * np.sqrt(vals[1]), 2 * n_std * np.sqrt(vals[0]),
                          angle=ang, fc=to_rgba(colour, AREA_ALPHA), ec=colour, lw=0.6, zorder=1))
 
 
