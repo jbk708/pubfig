@@ -4,6 +4,9 @@ version = "0.2.0"
 description = "Nature-format print style, annotation helpers and layout checks for matplotlib figures"
 readme = "README.md"
 requires-python = ">=3.10"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "Jonathan Blake Kirkland" }]
 dependencies = ["matplotlib>=3.7", "numpy>=1.24"]
 
 [project.optional-dependencies]

@@ -104,3 +104,7 @@ The full rules, their values and where each came from are in [`STYLE_GUIDE.md`](
 pip install -e ".[test]" && pytest
 python examples/gallery.py   # re-render examples/gallery.{svg,pdf,png}
 ```
+
+## License
+
+BSD 3-Clause (see `LICENSE`).
