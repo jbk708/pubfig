@@ -9,7 +9,7 @@ from matplotlib.lines import Line2D
 from .helpers import ellipse, p_text, stat_note, text_on
 from .style import DIV_NEG, DIV_POS, DOT, GRID, INK, INK2, MIN_FS, MM, PH, SEQ
 
-NS_ALPHA = 0.30  # P >= 0.05: same colour, pale fill (STYLE_GUIDE section 4); never an open marker
+NS_ALPHA = 0.30  # P >= 0.05: same colour, pale fill (STYLE_GUIDE section 3); never an open marker
 DASH = (0, (3, 2))
 SEQ_CMAP = LinearSegmentedColormap.from_list("pubfig_seq", ["#ffffff"] + SEQ)
 

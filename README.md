@@ -86,17 +86,14 @@ Draw them with the style constants and run `check_layout` on the result.
 
 The type is Nimbus Sans (Helvetica class). On barnacle it is installed on the login node only, and the compute nodes fall back to DejaVu Sans, so render final figures on the login node. On a Mac, Arial is used: matplotlib cannot load macOS Helvetica (`Helvetica.ttc`) glyphs at 5 pt on its 100 dpi canvas, which breaks the layout check. Nature accepts either typeface.
 
-## Format rules (Nature)
-- **Width:** 89 mm single column or 183 mm double column; height ≤ 170 mm (≤ 247 mm with legend).
-- **Type:** sans-serif (Helvetica class), 5–7 pt; panel labels bold lowercase 8 pt.
-- **Output:** SVG (editable text, `svg.fonttype none`) and vector PDF (embedded TrueType, `pdf.fonttype 42`); 300 dpi PNG for review only.
-- **Colour:** validate every categorical palette with the dataviz `validate_palette.js` for the chart form (`--pairs all` for scatter and boxes, adjacent pairs for stacks). Name groups directly, never by colour alone. Effects use the blue ↔ red diverging pair with a grey midpoint. Boxes are filled at alpha 0.40 and areas at 0.15, outlined in the full colour.
-- **Print legibility:** no text below 5 pt; text ≥ 7:1 contrast; marks ≥ 3:1; white card fills; heatmap labels pick black or white by contrast; lines ≥ 0.3 pt.
-- **Titles:** short, neutral, sentence case, one line, centred, named after the method where one applies ("PERMANOVA: variance explained"). No conclusions in titles. Statistics go inside the panel (bracket + stars + exact italic *P*; test name in a free corner).
-- **Plain language:** no internal model or ticket IDs in figures; define every abbreviation.
-- **Axes and stats:** one y-scale per panel. Give n, the test and the multiple-testing method in every legend, and define every error bar.
+## Style rules
 
-The full rules, their values and where each came from are in [`STYLE_GUIDE.md`](STYLE_GUIDE.md).
+[`STYLE_GUIDE.md`](STYLE_GUIDE.md) is the full reference: page and output, type, colour, marks, statistics, titles and layout, each with its value and the pubfig name that applies it. In short:
+- 89 or 183 mm wide;
+- Helvetica-class type at 5–8 pt, nothing below 5 pt;
+- colour-blind-safe palettes, with groups named directly, never by colour alone;
+- exact *P* values on the plot;
+- nothing overlapping or clipped, checked by `require_layout` before saving.
 
 ## Tests
 
