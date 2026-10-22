@@ -36,8 +36,8 @@ Font notes:
   figures on the login node.
 - On a Mac, Arial is used. matplotlib cannot load macOS Helvetica (`Helvetica.ttc`) glyphs at 5 pt on its 100 dpi
   canvas, which breaks the layout check.
-- Math text (italic *P*, subscripts) is set to Nimbus Sans. Where that font is missing, as on a Mac, math text falls
-  back to a different face from the surrounding labels. Check final figures on a machine with Nimbus Sans.
+- Math text (italic *P*, subscripts) takes a single named face, so pubfig sets it to whichever face the labels
+  resolve to on that machine (`MATH_FONT`): Nimbus Sans on barnacle, Arial on a Mac.
 
 ## 3. Colour
 

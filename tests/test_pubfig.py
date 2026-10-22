@@ -60,3 +60,14 @@ def test_p_text_and_stars():
 def test_text_on_picks_readable_ink():
     assert pf.text_on((0.05, 0.2, 0.42)) == "white"
     assert pf.text_on((1, 1, 1)) == pf.INK
+
+
+def test_math_text_uses_the_same_face_as_plain_text():
+    # Italic P and subscripts must not fall back to a different face from the labels around them.
+    from matplotlib import font_manager
+
+    plain = font_manager.findfont(font_manager.FontProperties(family=plt.rcParams["font.sans-serif"]))
+    math = font_manager.findfont(font_manager.FontProperties(family=plt.rcParams["mathtext.rm"]),
+                                 fallback_to_default=False)
+    assert plain == math
+    assert plt.rcParams["mathtext.it"] == f"{pf.MATH_FONT}:italic"

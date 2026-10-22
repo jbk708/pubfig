@@ -1,6 +1,6 @@
 [project]
 name = "pubfig"
-version = "0.2.0"
+version = "0.2.1"
 description = "Nature-format print style, annotation helpers and layout checks for matplotlib figures"
 readme = "README.md"
 requires-python = ">=3.10"
